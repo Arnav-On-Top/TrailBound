@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TrailBound</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h2>TrailBound</h2>
+            <p>Expedition Planning Website</p>
+        </header>
+        <section id="homePage">
+            <div class="welcome">
+                <h1>Welcome To TrailBound</h1>
+                <p>Create a new expedition, plan, organise and check out the supplies and necessary items you would require to avoid forgetting things. </p>
+            </div>
+            <div class="dashboard-heading">
+                <h2>Expeditions</h2>
+                <button onclick="showCreateForm()">Create</button>
+            </div>
+            <div id="createForm" class="form-box hidden">
+                <h2>Create New Plan</h2>
+                <label>Trip Name</label>
+                <input type="text" id="tripName">
+                <label>Destination</label>
+                <input type="text" id="destination">
+                <label>Start Date</label>
+                <input type="date" id="startDate">
+                <label>Duration(days)</label>
+                <input type="number" id="duration">
+                <label>Number Of People</label>
+                <input type="number" id="people">
+                <label>Expedition Type</label>
+                <select id="tripType">
+                    <option value="Hiking">Hiking</option>
+                    <option value="Camping">Camping</option>
+                    <option value="Trekking">Trekking</option>
+                </select>
+                <button onclick="createTrip()">Create</button>
+                <button class="cancel-btn" onclick="hideCreateForm()">Cancel</button>
+            </div>
+            <div id="tripList" class="trip-list"></div>
+        </section>
+        <section id="plannerPage" class="hidden">
+            <button class="back-btn" onclick="goHome()">Back To Dashboard</button>
+            <div class="planner-heading">
+                <h1 id="plannerTitle">Expedition</h1>
+                <p id="plannerDestination"></p>
+            </div>
+            <div class="section-box">
+                <h2> Details</h2>
+                <p id="tripDate"></p>
+                <p id="tripDuration"></p>
+                <p id="tripPeople"></p>
+                <p id="tripTypeText"></p>
+            </div>
+            <div class="section-box">
+                <h2>Packing Checklist</h2>
+                <p>Tick the items as you pack up</p>
+                <div class="progress-container">
+                    <div id="progressBar"></div>
+                </div>
+                <p id="progressText">0 items packed</p>
+                <div id="packingList"></div>
+                <h3>Add Your Own Items</h3>
+                <div class="add-item">
+                    <input type="text" id="extraItem">
+                    <button onclick="addItem()">Add Item</button>
+                </div>
+            </div>
+            <div class="section-box">
+                <h2>Supply Calculator</h2>
+                <p id="waterResult"></p>
+                <p id="foodResult"></p>
+                <small>
+                    Estimated planning allowance: 3L and 3 meals per person per day.
+                    Adjust according to weather/activity/climate
+                </small>
+            </div>
+            <button class="delete-btn" onclick="deleteTrip()">Delete This Expedition</button>
+        </section>
+        <script src="script.js"></script>
+    </body>
+</html>
